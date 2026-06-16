@@ -91,7 +91,7 @@ over "OmniverseKit_Persp"
 
 def Xform "World" (
     variants = {
-        string environment = "default"
+        string environment = "clear_sky"
     }
     prepend variantSets = "environment"
 )
@@ -426,7 +426,8 @@ def Xform "World" (
 
                     over "AxisNorth"
                     {
-                        double3 xformOp:rotateZYX = (0, 0, 0)
+                        double3 xformOp:rotateZYX = (0, 180, 0)
+                        token[] xformOpOrder = ["xformOp:rotateZYX"]
 
                         over "AxisLatitude"
                         {
@@ -434,16 +435,17 @@ def Xform "World" (
 
                             over "AxisSHA"
                             {
-                                double3 xformOp:rotateZYX = (142.84346559996118, 0, 0)
+                                double3 xformOp:rotateZYX = (142.88428101892038, 0, 0)
 
                                 over "AxisDeclination"
                                 {
-                                    double3 xformOp:rotateZYX = (0, 0, 7.999834338981633)
+                                    double3 xformOp:rotateZYX = (0, 0, 23.455512989297194)
 
                                     over "DistantLight"
                                     {
                                         color3f inputs:color = (1, 0.98, 0.95)
                                         float inputs:intensity = 5000
+                                        token visibility = "inherited"
                                     }
                                 }
                             }
@@ -451,11 +453,11 @@ def Xform "World" (
 
                         over "AxisAzimuth"
                         {
-                            double3 xformOp:rotateZYX = (0, 124.15125931235416, 0)
+                            double3 xformOp:rotateZYX = (0, 107.18856372639715, 0)
 
                             over "AxisElevation"
                             {
-                                double3 xformOp:rotateZYX = (0, 0, 43.718102266652515)
+                                double3 xformOp:rotateZYX = (0, 0, 54.588497917089924)
                             }
                         }
                     }
@@ -471,15 +473,15 @@ def Xform "World" (
                         {
                             over "Shader"
                             {
-                                float inputs:Azimuth = 124.15126
-                                float inputs:DayOfYear = 100
-                                float inputs:Declination = 7.9998345
-                                float inputs:Elevation = 43.7181
-                                float inputs:Latitude = 51.426
-                                float inputs:Longitude = -0.985
+                                float inputs:Azimuth = 107.18856
+                                float inputs:DayOfYear = 172
+                                float inputs:Declination = 23.455513
+                                float inputs:Elevation = 54.588497
+                                float inputs:Latitude = 40.4168
+                                float inputs:Longitude = -3.7038
                                 float inputs:NorthOrientation = 0
-                                float inputs:SHA = 37.156536
-                                float inputs:TimeOfDay = 6.93
+                                float inputs:SHA = 37.11572
+                                float inputs:TimeOfDay = 14.5
                             }
                         }
                     }
@@ -489,9 +491,6 @@ def Xform "World" (
     }
     variantSet "environment" = {
         "clear_sky" {
-
-        }
-        "default" {
 
         }
         "studio" {
@@ -509,14 +508,14 @@ def Xform "World" (
                 def DomeLight "Dome"
                 {
                     color3f inputs:color = (1, 1, 1)
-                    float inputs:intensity = 504
+                    float inputs:intensity = 3276
                 }
 
                 over "Key"
                 {
                     float inputs:angle = 8
                     color3f inputs:color = (1, 0.992, 0.975)
-                    float inputs:intensity = 12880
+                    float inputs:intensity = 83720
                     float3 xformOp:rotateXYZ = (44, -34, 0)
                 }
 
@@ -524,7 +523,7 @@ def Xform "World" (
                 {
                     float inputs:angle = 18
                     color3f inputs:color = (0.95, 0.97, 1)
-                    float inputs:intensity = 2576
+                    float inputs:intensity = 16744
                     float3 xformOp:rotateXYZ = (55, 130, 0)
                 }
             }
