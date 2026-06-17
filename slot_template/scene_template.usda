@@ -422,6 +422,11 @@ def Xform "World" (
                     prepend references = @./clearsky_assets/Assets/Skies/Dynamic/ClearSky.usd@
                 )
                 {
+                    double DayOfYear = 172
+                    double Latitude = 40.4168
+                    double Longitude = -3.7038
+                    double NorthOrientation = 0
+                    double TimeOfDay = 14.5
                     float3 xformOp:rotateZYX = (0, 0, 0)
 
                     over "AxisNorth"
@@ -435,11 +440,11 @@ def Xform "World" (
 
                             over "AxisSHA"
                             {
-                                double3 xformOp:rotateZYX = (142.88428101892038, 0, 0)
+                                double3 xformOp:rotateZYX = (142.83205920005562, 0, 0)
 
                                 over "AxisDeclination"
                                 {
-                                    double3 xformOp:rotateZYX = (0, 0, 23.455512989297194)
+                                    double3 xformOp:rotateZYX = (0, 0, 23.452046074516133)
 
                                     over "DistantLight"
                                     {
@@ -453,11 +458,11 @@ def Xform "World" (
 
                         over "AxisAzimuth"
                         {
-                            double3 xformOp:rotateZYX = (0, 107.18856372639715, 0)
+                            double3 xformOp:rotateZYX = (0, 107.14295546171311, 0)
 
                             over "AxisElevation"
                             {
-                                double3 xformOp:rotateZYX = (0, 0, 54.588497917089924)
+                                double3 xformOp:rotateZYX = (0, 0, 54.548397631825345)
                             }
                         }
                     }
@@ -473,15 +478,17 @@ def Xform "World" (
                         {
                             over "Shader"
                             {
-                                float inputs:Azimuth = 107.18856
+                                float inputs:Azimuth = 107.14295
                                 float inputs:DayOfYear = 172
-                                float inputs:Declination = 23.455513
-                                float inputs:Elevation = 54.588497
+                                float inputs:Declination = 23.452045
+                                float inputs:Elevation = 54.548397
                                 float inputs:Latitude = 40.4168
                                 float inputs:Longitude = -3.7038
                                 float inputs:NorthOrientation = 0
-                                float inputs:SHA = 37.11572
+                                float inputs:SHA = 37.167942
+                                bool inputs:SunPositionFromTOD = 0
                                 float inputs:TimeOfDay = 14.5
+                                float inputs:TimeOfDaySpeed = 0
                             }
                         }
                     }
@@ -508,14 +515,14 @@ def Xform "World" (
                 def DomeLight "Dome"
                 {
                     color3f inputs:color = (1, 1, 1)
-                    float inputs:intensity = 3276
+                    float inputs:intensity = 1802
                 }
 
                 over "Key"
                 {
                     float inputs:angle = 8
                     color3f inputs:color = (1, 0.992, 0.975)
-                    float inputs:intensity = 83720
+                    float inputs:intensity = 46046
                     float3 xformOp:rotateXYZ = (44, -34, 0)
                 }
 
@@ -523,7 +530,7 @@ def Xform "World" (
                 {
                     float inputs:angle = 18
                     color3f inputs:color = (0.95, 0.97, 1)
-                    float inputs:intensity = 16744
+                    float inputs:intensity = 9209
                     float3 xformOp:rotateXYZ = (55, 130, 0)
                 }
             }
@@ -584,87 +591,6 @@ def Xform "World" (
                 }
             }
 
-        }
-    }
-}
-
-def Xform "Environment" (
-    active = false
-)
-{
-    custom string date = "2021-06-21"
-    custom double location:latitude = 40.4168
-    custom double location:longitude = -3.7038
-    custom double location:north_orientation = 0
-    custom float time:current = 14.5
-    custom float weather:cloud_coverage = 0
-    custom bool weather:cumulus_enabled = 0
-    custom float weather:haze = 0.08
-
-    def Xform "sky" (
-        prepend references = @./clearsky_assets/Assets/Skies/Dynamic/ClearSky.usd@
-    )
-    {
-        float3 xformOp:rotateZYX = (0, 0, 0)
-
-        over "AxisNorth"
-        {
-            double3 xformOp:rotateZYX = (0, 0, 0)
-
-            over "AxisLatitude"
-            {
-                double3 xformOp:rotateZYX = (0, 0, 40.4168)
-
-                over "AxisSHA"
-                {
-                    double3 xformOp:rotateZYX = (142.84346559996118, 0, 0)
-
-                    over "AxisDeclination"
-                    {
-                        double3 xformOp:rotateZYX = (0, 0, 7.999834338981633)
-
-                        over "DistantLight"
-                        {
-                            color3f inputs:color = (1, 0.98, 0.95)
-                            float inputs:intensity = 5000
-                        }
-                    }
-                }
-            }
-
-            over "AxisAzimuth"
-            {
-                double3 xformOp:rotateZYX = (0, 124.15125931235416, 0)
-
-                over "AxisElevation"
-                {
-                    double3 xformOp:rotateZYX = (0, 0, 43.718102266652515)
-                }
-            }
-        }
-
-        over "DomeLight"
-        {
-            float3 xformOp:rotateZYX = (270, 0, 0)
-        }
-
-        over "Looks"
-        {
-            over "SkyMaterial"
-            {
-                over "Shader"
-                {
-                    float inputs:Azimuth = 124.15126
-                    float inputs:DayOfYear = 100
-                    float inputs:Declination = 7.9998345
-                    float inputs:Elevation = 43.7181
-                    float inputs:Latitude = 51.426
-                    float inputs:Longitude = -0.985
-                    float inputs:NorthOrientation = 0
-                    float inputs:SHA = 37.156536
-                    float inputs:TimeOfDay = 6.93
-                }
-            }
         }
     }
 }
