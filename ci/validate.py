@@ -1,6 +1,6 @@
 """Validates the static assets before they are tagged and served.
 
-Run from the repository root (CI: the Jenkins job KB/KB_STATIC_ASSETS):
+Run from the repository root (CI: the Jenkins job PrefKB-KBStorage/KB_STATIC_ASSETS):
 
     pip install usd-core==26.5
     python ci/validate.py
